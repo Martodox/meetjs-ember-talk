@@ -1,0 +1,23 @@
++slide
+    h5 Mirage
+    p XHttpRequest mock library
+
+    pre
+        code.bash(data-trim contenteditable).
+            $ ember install ember-cli-mirage
+
+    pre.fragment
+        code.javascript(data-trim contenteditable).
+            this.get('/orders', function () {
+              return [
+                ...
+              ];
+            });
+
+            this.get('/orders/:id', function (schema, { params: { id } }) {
+              return {
+                ...
+              };
+            });
+
+

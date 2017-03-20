@@ -1,0 +1,34 @@
++slide
+    h5 Template
+    pre
+        code.handlebars().
+            &lt;table class="table table-striped table-bordered table-hover"&gt;
+              &lt;thead&gt;
+                &lt;tr&gt;
+                  {{#each headers as |header|}}
+                    &lt;th&gt;{{details}}&lt;/th&gt;
+                  {{/each}}
+                &lt;/tr&gt;
+              &lt;/thead&gt;
+              &lt;tbody&gt;
+                {{#each model as |order|}}
+                  {{table-row data=order goToOrder=(action 'goToOrder')}}
+                {{/each}}
+              &lt;/tbody&gt;
+            &lt;/table&gt;
+
+    pre
+        code.handlebars().
+            {{#if addNew}}
+                {{add-order saveOrder=(action 'saveOrder')}}
+            {{else}}
+                &lt;button {{action 'toggleForm'}} class="btn btn-default"&gt;
+                    Add new
+                &lt;/button&gt;
+            {{/if}}
+
+    aside.notes.
+        Headers prop is a computed property. It Ember uses its own implementation of virtual DOM, glimmer.
+        Thanks to cmp props it triggers rerender of changed dom elements ofter all current operations complete.
+
+        Table row is a component

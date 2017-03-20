@@ -135,18 +135,18 @@ module.exports = function(grunt) {
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss' ],
+				files: [ 'css/**/*.scss' ],
 				tasks: 'css-core'
 			},
 			templates: {
-				files: [ 'templates/**/*.pug' ],
+				files: [ '**/*.pug' ],
 				tasks: 'pug'
 			},
 			html: {
 				files: [ '*.html']
 			},
 			markdown: {
-				files: [ '*.md' ]
+				files: [ '**/*.md' ]
 			},
 			options: {
 				livereload: true

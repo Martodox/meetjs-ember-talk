@@ -1,0 +1,17 @@
++slide
+    p Computed properties
+    pre
+        code.handlebars().
+          &lt;thead&gt;
+            &lt;tr&gt;
+              {{#each headers as |header|}}
+                &lt;th&gt;{{details}}&lt;/th&gt;
+              {{/each}}
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+
+    pre
+        code.javascript(data-trim contenteditable).
+            headers: Ember.computed('model', function () {
+                return Object.keys(this.get('model')[0]);
+            })

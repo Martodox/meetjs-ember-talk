@@ -1,0 +1,39 @@
++slide
+    h5 Persisting data
+    pre
+        code.javascript(data-trim contenteditable).
+            import Ember from 'ember';
+
+            const { inject: { service } } = Ember;
+
+            export default Ember.Controller.extend({
+                orders: service(),
+                addNew: false,
+                actions: {
+                    saveOrder(newOrder) {
+                        this.get('orders').addOrder(newOrder).then(response => {
+                            this.get('model').pushObject(response);
+                            this.toggleProperty('addNew');
+                        });
+                    }
+                }
+            });
+
+
++slide
+    h5 Persisting data
+    p add-order component
+    pre
+        code.handlebars().
+            &lt;span&gt;{{newOrder.description}}&lt;/span&gt;
+
+            &lt;form {{action "newOrder" on="submit"}}&gt;
+
+                {{input value=newOrder.customer placeholder="Customer"}}
+
+                {{input value=newOrder.netValue placeholder="Value"}}
+
+                {{input value=newOrder.description placeholder="Description"}}
+
+                &lt;button type="submit"&gt;Submit&lt;/button&gt;
+            &lt;/form&gt;

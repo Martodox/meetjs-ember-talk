@@ -1,0 +1,49 @@
++slide
+    h5 3. Mocked API
+
+
+
++slide
+    h3 Json samples
+    span GET /orders
+    pre
+        code.json(data-trim contenteditable).
+            [
+                {
+                    "id": 5433,
+                    "customer": "Jonh Smith",
+                    "net_value": "2342789",
+                    "description": "John asked us to deliver his order as soon as posible",
+                    "urgent": true
+                },
+                {
+                    "id": 91234,
+                    "customer": "Adam Małysz",
+                    "net_value": "453213",
+                    "description": "The skies can be delivered no later than September",
+                    "urgent": false
+                }
+            ]
+
++slide
+    h3 Json samples
+    span GET /orders/91234
+    pre
+        code.json(data-trim contenteditable).
+            {
+                "id": 91234,
+                "manifest": [
+                    {
+                        "item_id": 4321,
+                        "description": "Fisher N00915",
+                        "qty": 6,
+                        "net_price": 1200
+                    },
+                    {
+                        "item_id": 7321,
+                        "description": "Meininger jumpsuit 146/black",
+                        "qty": 6,
+                        "net_price": 200
+                    }
+                ]
+            }

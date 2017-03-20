@@ -1,0 +1,28 @@
++slide
+    h5 5. Understandable tests
++slide
+    p Unit tests? Integration tests? E2E tests?
+    .fragment
+        p How about BDD?
+        pre
+            code.gherkin(data-trim contenteditable).
+                Feature: order page
+                    Scenario: I can see orders
+                        Given I visit / page of my application
+                        Then I see table with 5 headers visible on the screen
+                        And I see Add new button visible on the screen
+
+        pre
+            code.gherkin(data-trim contenteditable).
+                Feature: single order
+                    Scenario: displays single order
+                        Given I visit /order/5433 page of my application
+                        Then I see id 5433 displayed in the top section
+                        And I see table with 4 headers visible on the screen
+
+
+        p Ember addon
+        pre
+            code(data-trim contenteditable).
+                $ ember install ember-cli-yadda
+

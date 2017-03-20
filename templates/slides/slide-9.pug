@@ -1,0 +1,45 @@
++slide
+    h5 4. Modular
++slide
+    h5 table-row component
+    pre
+        code.handlebars().
+            &lt;tbody&gt;
+                {{#each model as |order|}}
+                    {{table-row data=order goToOrder=(action 'goToOrder')}}
+                {{/each}}
+            &lt;/tbody&gt;
+
+    p Controller's actions
+    pre
+        code.javascript().
+            actions: {
+                goToOrder(orderId) {
+                    this.transitionToRoute('single-order', orderId);
+                }
+            }
+
++slide
+    h5 table-row component
+    pre
+        code.bash(data-trim contenteditable).
+            $ ember g component table-row
+
+
+    p template.hbs
+    pre
+        code.hbs().
+            {{#each-in data as |key value|}}
+                &lt;td&gt;{{value}}&lt;/td&gt;
+            {{/each-in}}
+
+    p component.js
+    pre
+        code.javascript().
+            tagName: 'tr',
+            classNameBindings: ['data.urgent:warning'],
+            doubleClick() {
+              this.sendAction('goToOrder', this.get('data.id'));
+            }
+
+include slide-9-1

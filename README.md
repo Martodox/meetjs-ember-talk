@@ -1,5 +1,7 @@
 # ember - the free framework
 
+#### A presentation on how ember.js allows you to build an application with most of the stuff handed out for free.
+
 Meet.js - 30 March 2017
 
 
